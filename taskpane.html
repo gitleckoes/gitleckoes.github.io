@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Form Pembelian</title>
+
+  <link rel="stylesheet" href="taskpane.css">
+
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js">
+  </script>
+</head>
+
+<body>
+  <main class="container">
+    <!-- <h2>Form Pembelian</h2> -->
+
+    <div id="message"></div>
+
+    <form id="purchaseForm">
+      <label for="tanggal">Tanggal</label>
+      <input id="tanggal" type="date" required>
+
+      <label for="noBeli">No. Beli</label>
+      <input id="noBeli" type="text" required>
+
+      <label for="supplierId">Supplier ID</label>
+      <input
+        id="supplierId"
+        type="text"
+        list="supplierList"
+        autocomplete="off"
+        required>
+      <datalist id="supplierList"></datalist>
+
+      <label for="produkId">Produk ID</label>
+      <input
+        id="produkId"
+        type="text"
+        list="produkList"
+        autocomplete="off"
+        required>
+      <datalist id="produkList"></datalist>
+
+      <label for="qty">Qty</label>
+      <input
+        id="qty"
+        type="number"
+        min="1"
+        value="1"
+        required>
+
+      <label for="harga">Harga</label>
+      <input
+        id="harga"
+        type="number"
+        min="0"
+        step="0.01"
+        value="0"
+        required>
+
+      <label for="subtotal">Subtotal</label>
+      <input id="subtotal" type="number" readonly>
+
+      <label for="metodeBayar">Metode Bayar</label>
+      <select id="metodeBayar">
+        <option value="Tunai">Tunai</option>
+        <option value="Transfer">Transfer</option>
+      </select>
+
+      <label for="statusBayar">Status Bayar</label>
+      <select id="statusBayar">
+        <option value="Lunas">Lunas</option>
+        <option value="Belum">Belum</option>
+      </select>
+
+      <button id="saveButton" type="submit">
+        Simpan ke Excel
+      </button>
+
+      <button id="resetButton" type="button">
+        Reset
+      </button>
+    </form>
+  </main>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
